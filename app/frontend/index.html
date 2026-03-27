@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Analyst Engine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+
+    <div class="container">
+        <!-- Compact Header -->
+        <header class="glass-header slide-down flex-header">
+            <div class="logo-section" id="homeLogo" title="Return to Home Feed">
+                <h1>🧠 AI News Analyst</h1>
+                <p>Smart Daily Insights</p>
+            </div>
+            <div class="search-section">
+                <div class="input-group">
+                    <input type="text" id="queryInput" placeholder="Search a topic..." autocomplete="off">
+                    <button class="glow-btn" id="analyzeBtn">Search</button>
+                    <input type="number" id="limitInput" value="15" min="2" max="50" title="Max Articles" class="mini-input" style="display:none;">
+                </div>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden glass-panel">
+            <div class="spinner"></div>
+            <p id="loadingText" class="pulse-text">Reading and grouping breaking news...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden glass-panel error">
+            <p id="errorText">Error occurred.</p>
+        </div>
+
+        <!-- Dashboard Results -->
+        <div id="resultsDashboard" class="hidden fade-in-up">
+            <h2 id="reportTitle" style="color: #fff; margin-bottom: 20px;">Showing: <span style="color:#6ee7b7" id="statTopic">Latest Global News</span></h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card glass-panel glow-hover">
+                    <h3>Articles Read</h3>
+                    <p class="big-stat" id="statArticles">0</p>
+                </div>
+                <div class="metric-card glass-panel glow-hover" style="grid-column: span 2">
+                    <h3>Analysis Reference</h3>
+                    <p class="small-stat" id="statReportId" style="color: #94a3b8; font-family: monospace;">-</p>
+                </div>
+            </div>
+
+            <!-- Clusters Container -->
+            <div id="clustersContainer" class="clusters-grid">
+                <!-- Injected via JS -->
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
